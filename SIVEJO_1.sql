@@ -54,3 +54,24 @@ alter table history add foreign key (idStatus) references status (id);
 
 select * from status;
 select * from category;
+
+alter table products add stock bigint (5) not null;
+
+create table sales (
+	id bigint auto_increment,
+    idUser bigint not null,
+    idProduct bigint not null,
+    count  tinyint,
+	salesDate timestamp default current_timestamp,
+    primary key (id)
+);
+
+alter table sales add foreign key (idUser) references users (id);
+alter table sales add foreign key (idProduct) references products (id);
+
+/*Posible credito automático
+create trigger generateSales after insert on history for each row
+begin
+	insert into sales (idUser,idProduct) values (new.idUser,new.idProduct);
+end
+*/
