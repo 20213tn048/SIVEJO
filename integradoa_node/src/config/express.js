@@ -1,7 +1,7 @@
 //importations
 const express= require("express"); //ve por el archivo y traeme
 const cors = require("cors");
-const {categoryRouter,userRouter,authRouter,productsRouter} = require("../modules/controller/routes");
+const {categoryRouter,userRouter,authRouter,productsRouter,requestsRouter} = require("../modules/controller/routes");
 const {request, response} = require("express");
 
 
@@ -24,6 +24,7 @@ app.use("/api/user", userRouter);
 app.use("/api/auth",authRouter);
 app.use("/api/category",categoryRouter);
 app.use("/api/products",productsRouter);
+app.use("/api/requests",requestsRouter);
 module.exports={ //exportar objeto
     app
 };

@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+const mysql = require('mysql2');
 require('dotenv').config();
 const client = mysql.createPool({
     connectionLimit: 5,
@@ -10,6 +10,7 @@ const client = mysql.createPool({
     debug: false,
 });
 
+console.log(process.env.DB_PORT);
 const query = (query, params) => {
     return new Promise((resolve, reject) => {
         client.getConnection((err, conn) => {
