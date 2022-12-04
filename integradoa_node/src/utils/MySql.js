@@ -9,8 +9,6 @@ const client = mysql.createPool({
     port: process.env.DB_PORT,
     debug: false,
 });
-
-console.log(process.env.DB_PORT);
 const query = (query, params) => {
     return new Promise((resolve, reject) => {
         client.getConnection((err, conn) => {

@@ -4,13 +4,13 @@ const {insert, findById,findAll, deleteId,updateById} = require("./products.gate
 
 const save = async (req, res = Response) => {
     try {
-        const { name,category,price} = req.body;
+        const { description,category,price,stock} = req.body;
         console.log(req.body);
-        const product = await insert({ name,category,price});
+        const product = await insert({ description,category,price,stock });
         res.status(200).json(product);
     } catch (error) {
         console.log(error);
-        const message = validateError(err);
+        const message = validateError(error);
         res.status(400).send({ message });
     }
 };
@@ -55,9 +55,9 @@ const deletebyid = async (req,res =Response) =>{
 
 const update = async (req, res = Response) => {
     try {
-        const { name,category,price,id} = req.body;
+        const { descriptions,category,price,id,stock} = req.body;
         console.log(req.body);
-        const product = await updateById({ name,category,price,id});
+        const product = await updateById({ descriptions, category, price, stock, id});
         res.status(200).json(product);
     } catch (error) {
         console.log(error);

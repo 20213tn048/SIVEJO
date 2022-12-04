@@ -20,7 +20,7 @@ const save = async (user) => {
     )
         throw Error('Missing fields');
 
-    const sql = `INSERT INTO usuarios (name,surname,lastname,phone,address,email, password, role, status) VAlUES (?,?,?,?,?,?,?,?,?);`;
+    const sql = `INSERT INTO users (name,surname,lastname,phone,address,email, password, role, status) VAlUES (?,?,?,?,?,?,?,?,?);`;
 
     const password = await hashPassword(user.password);
     const { insertId } = await query(sql, [
