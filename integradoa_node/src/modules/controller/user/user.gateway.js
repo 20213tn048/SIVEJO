@@ -2,16 +2,18 @@ const { hashPassword } = require('../../../utils/functions');
 const { query } = require('../../../utils/mysql');
 
 const findAll  = async () => {
-    const sql = `SELECT * from usuarios;`;
+    const sql = `SELECT * from users;`;
     return await query(sql,[]);
 }
-const findById  = async (idUsuario) => {
-    const sql = `SELECT * from usuarios  WHERE idUsuario=?;`;
-    return await query(sql,[idUsuario]);
+const findById  = async (id) => {
+    if (!id) throw Error("Missing fields");
+    const sql = `SELECT * from users  WHERE id=?;`;
+    return await query(sql,[id]);
 }
-const deleteId  = async (idUsuario) => {
-    const sql = `DELETE from usuarios WHERE idUsuario=?;`;
-    return await query(sql,[idUsuario]);
+const deleteId  = async (id) => {
+    if (!id) throw Error("Missing fields");
+    const sql = `DELETE from users WHERE id=?;`;
+    return await query(sql,[id]);
 }
 const save = async (user) => {
     console.log(user);
@@ -42,11 +44,11 @@ const save = async (user) => {
 const updateById = async (user) => {
     console.log(user);
     if (
-       !user.name||!user.surname|| !user.lastname|| !user.phone|| !user.address|| !user.email || !user.password || !user.role || !user.status||!user.idUsuario
+       !user.name||!user.surname|| !user.lastname|| !user.phone|| !user.address|| !user.email || !user.password || !user.role || !user.status||!user.id
     )
         throw Error('Missing fields');
 
-    const sql = `UPDATE usuarios SET name=?,surname=?,lastname=?,phone=?,address=?,email=?, password=?, role=?, status=? WHERE idUsuario=?;`;
+    const sql = `UPDATE users SET name=?,surname=?,lastname=?,phone=?,address=?,email=?, password=?, role=?, status=? WHERE id=?;`;
 
     const password = await hashPassword(user.password);
     const { updateId } = await query(sql, [
@@ -59,7 +61,7 @@ const updateById = async (user) => {
         password,
         user.role,
         user.status,
-    user.idUsuario
+        user.id
     ]);
 
     delete user.password;

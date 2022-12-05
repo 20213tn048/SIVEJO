@@ -1,18 +1,18 @@
 const {query}= require ('../../../utils/mysql');
 const insert = async (product) => {
-    if (!product.description|| ! product.category || ! product.price || ! product.stock) throw Error("Revisa el campo");
+    if (!product.descriptions|| ! product.category || ! product.price || ! product.stock) throw Error("Revisa el campo");
     const sql = `INSERT INTO products (description,category,price,stock) VALUES (?,?,?);`;
-    const {insertId} = await  query(sql,[product.description,product.category,product.price,product.stock]);
+    const {insertId} = await  query(sql,[product.descriptions,product.category,product.price,product.stock]);
     return {...product, insertId};
 };
 const findAll  = async () => {
-    const sql = `SELECT pro.*, ca.category_name FROM products pro JOIN category ca ON pro.category = ca.id;`;
+    const sql = `SELECT pro.*, ca.description as descriptions FROM products pro JOIN category ca ON pro.category = ca.id;`;
     return await query(sql,[]);
 };
 
 const findById = async (id) => {
     if (!id) throw Error ('Missing fields');
-    const sql = `SELECT pro.*, ca.category_name FROM products pro JOIN category ca ON pro.category = ca.id WHERE pro.id=?;`;
+    const sql = `SELECT pro.*, ca.description as descriptions FROM products pro JOIN category ca ON pro.category = ca.id WHERE pro.id=?;`;
     return await query(sql,[id]);
 };
 

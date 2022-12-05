@@ -4,9 +4,9 @@ const {insert, findById,findAll, deleteId,updateById} = require("./products.gate
 
 const save = async (req, res = Response) => {
     try {
-        const { description,category,price,stock} = req.body;
+        const { descriptions,category,price,stock} = req.body;
         console.log(req.body);
-        const product = await insert({ description,category,price,stock });
+        const product = await insert({ descriptions,category,price,stock });
         res.status(200).json(product);
     } catch (error) {
         console.log(error);
@@ -61,7 +61,7 @@ const update = async (req, res = Response) => {
         res.status(200).json(product);
     } catch (error) {
         console.log(error);
-        const message = validateError(err);
+        const message = validateError(error);
         res.status(400).send({ message });
     }
 };const productsRouter = Router();

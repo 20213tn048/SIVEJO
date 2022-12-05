@@ -15,8 +15,8 @@ const getAll = async (req,res = Response) =>{
 }
 const getById = async (req,res = Response) =>{
     try {
-        const {idUsuario} = req.params;
-        const results= await findById(idUsuario);
+        const {id} = req.params;
+        const results= await findById(id);
         res.status(200).json(results);
     } catch (err) {
         console.log(err);
@@ -38,9 +38,9 @@ const insert = async (req, res = Response) => {
 };
 const update = async (req, res = Response) => {
     try {
-        const { name,surname,lastname,phone,address,email,password ,idUsuario} = req.body;
+        const { name,surname,lastname,phone,address,email,password ,id} = req.body;
         console.log(req.body);
-        const user = await updateById({ name, surname, lastname, phone,address, email, password,role:'user', status: 1,idUsuario });
+        const user = await updateById({ name, surname, lastname, phone,address, email, password, role:'user', status: 1, id });
         res.status(200).json(user);
     } catch (error) {
         console.log(error);
@@ -51,8 +51,8 @@ const update = async (req, res = Response) => {
 
 const deleteById = async (req,res = Response) =>{
     try {
-        const {idUsuario} = req.params;
-        const results= await deleteId(idUsuario);
+        const {id} = req.params;
+        const results= await deleteId(id);
         res.status(200).json(results);
     } catch (err) {
         console.log(err);
@@ -64,8 +64,8 @@ const deleteById = async (req,res = Response) =>{
 const userRouter = Router();
 userRouter.post('/', [], insert);
 userRouter.get('/', [auth, checkRoles(['user'])], getAll); //GET -> !body
-userRouter.get('/:idUsuario', [], getById);
-userRouter.delete('/:idUsuario', [], deleteById);
+userRouter.get('/:id', [], getById);
+userRouter.delete('/:id', [], deleteById);
 userRouter.put('/', [], update);
 
 

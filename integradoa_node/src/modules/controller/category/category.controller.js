@@ -4,9 +4,9 @@ const {insert,findAll, findById,deleteId,updateById} = require("./category.gatew
 
 const save = async (req, res = Response) => {
     try {
-        const { category_name} = req.body;
+        const { descriptions} = req.body;
         console.log(req.body);
-        const category = await insert({ category_name});
+        const category = await insert({ descriptions});
         res.status(200).json(category);
     } catch (error) {
         console.log(error);
@@ -49,9 +49,9 @@ const deletebyid = async (req,res =Response) =>{
 };
 const update = async (req, res = Response) => {
     try {
-        const { category_name,id} = req.body;
+        const { descriptions,id} = req.body;
         console.log(req.body);
-        const category = await updateById({ category_name,id});
+        const category = await updateById({ descriptions,id});
         res.status(200).json(category);
     } catch (error) {
         console.log(error);
