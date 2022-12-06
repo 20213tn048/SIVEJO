@@ -3,7 +3,7 @@ const express= require("express"); //ve por el archivo y traeme
 const cors = require("cors");
 const {categoryRouter,userRouter,authRouter,productsRouter,requestsRouter} = require("../modules/controller/routes");
 const {request, response} = require("express");
-const {historyRouter} = require("../modules/controller/request/request.controller");
+const {historyRouter,statusRouter} = require("../modules/controller/request/request.controller");
 
 
 require("dotenv").config();//utilizar las propiedades del archivo .env
@@ -27,6 +27,7 @@ app.use("/api/category",categoryRouter);
 app.use("/api/products",productsRouter);
 app.use("/api/requests",requestsRouter);
 app.use("/api/history",historyRouter);
+app.use("/api/status",statusRouter);
 module.exports={ //exportar objeto
     app
 };

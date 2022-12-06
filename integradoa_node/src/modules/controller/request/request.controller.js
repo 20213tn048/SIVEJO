@@ -63,6 +63,7 @@ const getByStatus = async (req,res = Response) => {
     * stock
     * idCategory
     * idSale
+    * idStatus
     */
 };
 
@@ -123,5 +124,6 @@ historyRouter.get('/:idUser',[auth, checkRoles(['user'])],getHistory);//user
 
 module.exports = {
     requestsRouter,
-    historyRouter
+    historyRouter,
+    statusRouter
 };

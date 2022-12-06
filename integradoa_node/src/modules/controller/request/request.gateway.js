@@ -16,7 +16,7 @@ const findHistory  = async (idUser) => {
 
 const findByStatus = async (idStatus) => {
     if (!idStatus) throw Error ('Missing fields');
-    const sql = `SELECT * FROM requests WHERE idStatus = ?;`;
+    const sql = `SELECT * FROM requests WHERE idStatus = ?`;
     return await query(sql,[idStatus]);
 };
 
@@ -28,7 +28,7 @@ const findBySales = async (idSales) =>{
 
 const updateById = async (sales) =>{
     if (!sales.idSales || !sales.idStatus) throw Error("Revisa el campo");
-    const sql = `UPDATE sales SET idStatus = ? WHERE id = ?;`;
+    const sql = `UPDATE sales SET idStatus = ?    WHERE id = ?;`;
     const {updateId} = await  query(sql,[sales.idStatus, sales.idSales]);
     return {...sales,updateId};
 }
