@@ -4,9 +4,9 @@ const {insert, findById,findAll, deleteId,updateById} = require("./products.gate
 
 const save = async (req, res = Response) => {
     try {
-        const { descriptions,category,price,stock} = req.body;
+        const { descriptions,category,price,stock,images} = req.body;
         console.log(req.body);
-        const product = await insert({ descriptions,category,price,stock });
+        const product = await insert({ descriptions,category,price,stock,images });
         res.status(200).json(product);
     } catch (error) {
         console.log(error);
@@ -39,6 +39,18 @@ const getbyid = async (req,res = Response) => {
     }
 };
 
+const update = async (req, res = Response) => {
+    try {
+        const { descriptions,category,price,id,stock} = req.body;
+        console.log(req.body);
+        const product = await updateById({ descriptions, category, price, stock, id});
+        res.status(200).json(product);
+    } catch (error) {
+        console.log(error);
+        const message = validateError(error);
+        res.status(400).send({ message });
+    }
+};
 
 const deletebyid = async (req,res =Response) =>{
     try {
@@ -53,18 +65,7 @@ const deletebyid = async (req,res =Response) =>{
     }
 };
 
-const update = async (req, res = Response) => {
-    try {
-        const { descriptions,category,price,id,stock} = req.body;
-        console.log(req.body);
-        const product = await updateById({ descriptions, category, price, stock, id});
-        res.status(200).json(product);
-    } catch (error) {
-        console.log(error);
-        const message = validateError(error);
-        res.status(400).send({ message });
-    }
-};const productsRouter = Router();
+const productsRouter = Router();
 productsRouter.post('/',[],save);
 productsRouter.get('/',[],getall);
 productsRouter.get('/:id',[],getbyid);

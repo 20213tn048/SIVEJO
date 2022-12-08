@@ -1,8 +1,8 @@
 const {query}= require ('../../../utils/mysql');
 const insert = async (product) => {
-    if (!product.descriptions|| ! product.category || ! product.price || ! product.stock) throw Error("Revisa el campo");
-    const sql = `INSERT INTO products (description,category,price,stock) VALUES (?,?,?,?);`;
-    const {insertId} = await  query(sql,[product.descriptions,product.category,product.price,product.stock]);
+    if (!product.descriptions|| ! product.category || ! product.price || ! product.stock || !product.images) throw Error("Revisa el campo");
+    const sql = `INSERT INTO products (description,category,price,stock,images) VALUES (?,?,?,?,?);`;
+    const {insertId} = await  query(sql,[product.descriptions,product.category,product.price,product.stock, product.images]);
     return {...product, insertId};
 };
 const findAll  = async () => {
