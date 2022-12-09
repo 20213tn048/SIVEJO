@@ -2,6 +2,7 @@ const { Response, Router } = require('express');
 const { validateError } = require('../../../utils/functions');
 const { save, findAll, deleteId, updateById,findById} = require('./user.gateway');
 const {auth, checkRoles} = require("../../../config/jwt");
+const {transporter, template} = require("../../../utils/email-service");
 
 const getAll = async (req,res = Response) =>{
     try {
@@ -29,6 +30,14 @@ const insert = async (req, res = Response) => {
         const { name,surname,lastname,phone,address,email,password } = req.body;
         console.log(req.body);
         const user = await save({ name, surname, lastname, phone,address, email, password,role:'user', status: 1 });
+        const info = await transporter.sendMail({
+            from: `Personal App <${process.env.EMAIL_USER}>`,
+            to: email,
+            subject:'Successful Registration',
+            text:'Te has registrado correctamente en la plataforma',
+            html:template('', email)
+        });
+        console.log(info);
         res.status(200).json(user);
     } catch (error) {
         console.log(error);
