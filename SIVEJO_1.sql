@@ -21,6 +21,7 @@ create table products(
 	description varchar(20) not null,
 	category bigint not null,
 	price double (7,2) not null,
+	images varchar(200),
     stock bigint not null
 );
 
