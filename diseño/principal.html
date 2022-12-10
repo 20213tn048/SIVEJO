@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- aqui inicia el navBar(o como se llame xd)-->
+    <header class="p-3 mb-3 border-bottom">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="#" class="nav-link px-2 link-secondary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-house" viewBox="0 0 16 16">
+                                <path
+                                    d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z" />
+                            </svg>
+                            Inicio
+                        </a></li>
+                    <li><a href="#" class="nav-link px-2 link-dark">
+                            Pedidos</a></li>
+                    <li><a href="#" class="nav-link px-2 link-dark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-clock-history" viewBox="0 0 16 16">
+                                <path
+                                    d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z" />
+                                <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z" />
+                                <path
+                                    d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z" />
+                            </svg>
+                            Historial</a></li>
+                    <li><a href="#" class="nav-link px-2 link-dark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-cart" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            </svg>
+                            Carrito</a></li>
+                </ul>
+
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <input type="search" class="form-control" placeholder="Buscar..." aria-label="Search">
+                </form>
+
+                <div class="dropdown text-end">
+                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <img src="imagenes/atardecer.jpg" alt="mdo" width="32" height="32" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu text-small" style="">
+                        <li><a class="dropdown-item" href="#">Perfil</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">salir</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- aqui inicia la imagen de arriba-->
+    <div class="clas-row contenedor">
+        <img src="imagenes/cabecera.jpg" alt="" style="width: 100%; height: 250px;">
+        <div class="centrado">
+            <h2>SIVEJO</h2>
+        </div>
+
+        <div class="centrado" style="margin-top: 2%;">
+            <h5>Sistema de venta de joyeria</h5>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <hr>
+            <div clas="col-1" style="font-size: x-large; ">
+                Anillos
+
+            </div>
+            <div class="col-10 offset-md-1">
+                <div id="carouselExampleControls1" class="carousel carousel-dark slide d-" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="cards-wrapper">
+
+
+                                <div class="card" style="height: 550px;">
+                                    <img src="imagenes/ring.png" />
+                                    <div class="card-body">
+                                        <h3>Exclusivo Online</h3>
+                                        <p>Anillo Hueso De los Deseos Con Corazón Brillante</p>
+                                        <h5>
+                                            $1,940
+                                            <del>$3,500</del>
+                                        </h5>
+
+                                        <button type="button" class="btn btn-outline-dark">Comprar</button>
+                                        <button type="button" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                            </svg>
+                                            Agregar al Carrito
+                                        </button>
+
+                                    </div>
+                                </div>
+
+                                <div class="card" style="height: 550px;">
+                                    <img src="imagenes/ring.png" alt="artículo" />
+                                    <div class="card-body">
+                                        <h3>Exclusivo Online</h3>
+                                        <p>Anillo Hueso De los Deseos Con Corazón Brillante</p>
+                                        <h5>
+                                            $1,940
+                                            <del>$3,500</del>
+                                        </h5>
+                                        <button type="button" class="btn btn-outline-dark">Comprar</button>
+                                        <button type="button" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                            </svg>
+                                            Agregar al Carrito
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card" style="height: 550px;">
+                                    <img src="imagenes/ring.png" alt="artículo" />
+                                    <div class="card-body">
+                                        <h3>Exclusivo Online</h3>
+                                        <p>Anillo Hueso De los Deseos Con Corazón Brillante</p>
+                                        <h5>
+                                            $1,940
+                                            <del>$3,500</del>
+                                        </h5>
+                                        <button type="button" class="btn btn-outline-dark">Comprar</button>
+                                        <button type="button" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                            </svg>
+                                            Agregar al Carrito
+                                        </button>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="cards-wrapper">
+
+                                <div class="card" style="height: 550px;">
+                                    <img src="imagenes/ring.png" alt="artículo" />
+                                    <div class="card-body">
+                                        <h3>Exclusivo Online</h3>
+                                        <p>Anillo Hueso De los Deseos Con Corazón Brillante</p>
+                                        <h5>
+                                            $1,940
+                                            <del>$3,500</del>
+                                        </h5>
+                                        <button type="button" class="btn btn-outline-dark">Comprar</button>
+                                        <button type="button" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                            </svg>
+                                            Agregar al Carrito
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card" style="height: 550px;">
+                                    <img src="imagenes/ring.png" alt="artículo" />
+                                    <div class="card-body">
+                                        <h3>Exclusivo Online</h3>
+                                        <p>Anillo Hueso De los Deseos Con Corazón Brillante</p>
+                                        <h5>
+                                            $1,940
+                                            <del>$3,500</del>
+                                        </h5>
+                                        <button type="button" class="btn btn-outline-dark">Comprar</button>
+                                        <button type="button" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                            </svg>
+                                            Agregar al Carrito
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card" style="height: 550px;">
+                                    <img src="imagenes/ring.png" alt="artículo" />
+                                    <div class="card-body">
+                                        <h3>Exclusivo Online</h3>
+                                        <p>Anillo Hueso De los Deseos Con Corazón Brillante</p>
+                                        <h5>
+                                            $1,940
+                                            <del>$3,500</del>
+                                        </h5>
+                                        <button type="button" class="btn btn-outline-dark">Comprar</button>
+                                        <button type="button" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                            </svg>
+                                            Agregar al Carrito
+                                        </button>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="cards-wrapper">
+
+
+                                <div class="card" style="height: 550px;">
+                                    <img src="imagenes/ring.png" alt="artículo" />
+                                    <div class="card-body">
+                                        <h3>Exclusivo Online</h3>
+                                        <p>Anillo Hueso De los Deseos Con Corazón Brillante</p>
+                                        <h5>
+                                            $1,940
+                                            <del>$3,500</del>
+                                        </h5>
+                                        <button type="button" class="btn btn-outline-dark">Comprar</button>
+                                        <button type="button" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                            </svg>
+                                            Agregar al Carrito
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card" style="height: 550px;">
+                                    <img src="imagenes/ring.png" alt="artículo" />
+                                    <div class="card-body">
+                                        <h3>Exclusivo Online</h3>
+                                        <p>Anillo Hueso De los Deseos Con Corazón Brillante</p>
+                                        <h5>
+                                            $1,940
+                                            <del>$3,500</del>
+                                        </h5>
+                                        <button type="button" class="btn btn-outline-dark">Comprar</button>
+                                        <button type="button" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                            </svg>
+                                            Agregar al Carrito
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card" style="height: 550px;">
+                                    <img src="imagenes/ring.png" alt="artículo" />
+                                    <div class="card-body">
+                                        <h3>Exclusivo Online</h3>
+                                        <p>Anillo Hueso De los Deseos Con Corazón Brillante</p>
+                                        <h5>
+                                            $1,940
+                                            <del>$3,500</del>
+                                        </h5>
+                                        <button type="button" class="btn btn-outline-dark">Comprar</button>
+                                        <button type="button" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                            </svg>
+                                            Agregar al Carrito
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls1"
+                        data-bs-slide="prev" style="height: auto; width: 50px;">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls1"
+                        data-bs-slide="next" style="height: auto; width: 50px;">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <hr>
+
+
+
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <hr>
+            <div clas="col-1" style="font-size: x-large; ">
+                Anillos
+
+            </div>
+            <div class="col-10 offset-md-1">
+                <div id="carouselExampleControls2" class="carousel carousel-dark slide d-" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="cards-wrapper">
+
+
+                                <div class="card" style="height: 550px;">
+                                    <img src="imagenes/ring.png" alt="artículo" />
+                                    <div class="card-body">
+                                        <h3>Exclusivo Online</h3>
+                                        <p>Anillo Hueso De los Deseos Con Corazón Brillante</p>
+                                        <h5>
+                                            $1,940
+                                            <del>$3,500</del>
+                                        </h5>
+                                        <button type="button" class="btn btn-outline-dark">Comprar</button>
+                                        <button type="button" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                            </svg>
+                                            Agregar al Carrito
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card" style="height: 550px;">
+                                    <img src="imagenes/ring.png" alt="artículo" />
+                                    <div class="card-body">
+                                        <h3>Exclusivo Online</h3>
+                                        <p>Anillo Hueso De los Deseos Con Corazón Brillante</p>
+                                        <h5>
+                                            $1,940
+                                            <del>$3,500</del>
+                                        </h5>
+                                        <button type="button" class="btn btn-outline-dark">Comprar</button>
+                                        <button type="button" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                            </svg>
+                                            Agregar al Carrito
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card" style="height: 550px;">
+                                    <img src="imagenes/ring.png" alt="artículo" />
+                                    <div class="card-body">
+                                        <h3>Exclusivo Online</h3>
+                                        <p>Anillo Hueso De los Deseos Con Corazón Brillante</p>
+                                        <h5>
+                                            $1,940
+                                            <del>$3,500</del>
+                                        </h5>
+                                        <button type="button" class="btn btn-outline-dark">Comprar</button>
+                                        <button type="button" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                            </svg>
+                                            Agregar al Carrito
+                                        </button>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="cards-wrapper">
+
+                                <div class="card" style="height: 550px;">
+                                    <img src="imagenes/ring.png" alt="artículo" />
+                                    <div class="card-body">
+                                        <h3>Exclusivo Online</h3>
+                                        <p>Anillo Hueso De los Deseos Con Corazón Brillante</p>
+                                        <h5>
+                                            $1,940
+                                            <del>$3,500</del>
+                                        </h5>
+                                        <button type="button" class="btn btn-outline-dark">Comprar</button>
+                                        <button type="button" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                            </svg>
+                                            Agregar al Carrito
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card" style="height: 550px;">
+                                    <img src="imagenes/ring.png" alt="artículo" />
+                                    <div class="card-body">
+                                        <h3>Exclusivo Online</h3>
+                                        <p>Anillo Hueso De los Deseos Con Corazón Brillante</p>
+                                        <h5>
+                                            $1,940
+                                            <del>$3,500</del>
+                                        </h5>
+                                        <button type="button" class="btn btn-outline-dark">Comprar</button>
+                                        <button type="button" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                            </svg>
+                                            Agregar al Carrito
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card" style="height: 550px;">
+                                    <img src="imagenes/ring.png" alt="artículo" />
+                                    <div class="card-body">
+                                        <h3>Exclusivo Online</h3>
+                                        <p>Anillo Hueso De los Deseos Con Corazón Brillante</p>
+                                        <h5>
+                                            $1,940
+                                            <del>$3,500</del>
+                                        </h5>
+                                        <button type="button" class="btn btn-outline-dark">Comprar</button>
+                                        <button type="button" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                            </svg>
+                                            Agregar al Carrito
+                                        </button>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="cards-wrapper">
+
+
+                                <div class="card" style="height: 550px;">
+                                    <img src="imagenes/ring.png" alt="artículo" />
+                                    <div class="card-body">
+                                        <h3>Exclusivo Online</h3>
+                                        <p>Anillo Hueso De los Deseos Con Corazón Brillante</p>
+                                        <h5>
+                                            $1,940
+                                            <del>$3,500</del>
+                                        </h5>
+                                        <button type="button" class="btn btn-outline-dark">Comprar</button>
+                                        <button type="button" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                            </svg>
+                                            Agregar al Carrito
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card" style="height: 550px;">
+                                    <img src="imagenes/ring.png" alt="artículo" />
+                                    <div class="card-body">
+                                        <h3>Exclusivo Online</h3>
+                                        <p>Anillo Hueso De los Deseos Con Corazón Brillante</p>
+                                        <h5>
+                                            $1,940
+                                            <del>$3,500</del>
+                                        </h5>
+                                        <button type="button" class="btn btn-outline-dark">Comprar</button>
+                                        <button type="button" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                            </svg>
+                                            Agregar al Carrito
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card" style="height: 550px;">
+                                    <img src="imagenes/ring.png" alt="artículo" />
+                                    <div class="card-body">
+                                        <h3>Exclusivo Online</h3>
+                                        <p>Anillo Hueso De los Deseos Con Corazón Brillante</p>
+                                        <h5>
+                                            $1,940
+                                            <del>$3,500</del>
+                                        </h5>
+                                        <button type="button" class="btn btn-outline-dark">Comprar</button>
+                                        <button type="button" class="btn btn-light">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                            </svg>
+                                            Agregar al Carrito
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls2"
+                        data-bs-slide="prev" style="height: auto; width: 50px;">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls2"
+                        data-bs-slide="next" style="height: auto; width: 50px;">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <hr>
+
+
+
+        </div>
+    </div>
+
+    </div>
+
+    </div>
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
