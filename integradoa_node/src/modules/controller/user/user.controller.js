@@ -49,6 +49,7 @@ const update = async (req, res = Response) => {
     try {
         const { name,surname,lastname,phone,address,email,password ,id} = req.body;
         console.log(req.body);
+        console.log(req.files);
         const user = await updateById({ name, surname, lastname, phone,address, email, password, role:'user', status: 1, id });
         res.status(200).json(user);
     } catch (error) {

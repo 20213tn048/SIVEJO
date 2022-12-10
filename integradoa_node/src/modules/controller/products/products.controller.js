@@ -1,12 +1,16 @@
-const { Response, Router } = require('express');
+const { Response, Router, response} = require('express');
 const { validateError } = require('../../../utils/functions');
-const {insert, findById,findAll, deleteId,updateById} = require("./products.gateway")
+const {insert, findById,findAll, deleteId,updateById, updateImagePath} = require("./products.gateway")
+const {uploadFiles, updateFiles, foundImage} = require("../../../utils/uploads");
+const path = require("path");
+const fs = require("fs");
+const {v4: uuidv4} = require("uuid");
 
 const save = async (req, res = Response) => {
     try {
-        const { descriptions,category,price,stock,images} = req.body;
+        const { descriptions,category,price,stock} = req.body;
         console.log(req.body);
-        const product = await insert({ descriptions,category,price,stock,images });
+        const product = await insert({ descriptions,category,price,stock,image:''});
         res.status(200).json(product);
     } catch (error) {
         console.log(error);
@@ -42,8 +46,9 @@ const getbyid = async (req,res = Response) => {
 const update = async (req, res = Response) => {
     try {
         const { descriptions,category,price,id,stock} = req.body;
-        console.log(req.body);
-        const product = await updateById({ descriptions, category, price, stock, id});
+        console.log(req.params);
+
+        const product = await updateById({ descriptions, category, price, stock, id, path});
         res.status(200).json(product);
     } catch (error) {
         console.log(error);
@@ -65,6 +70,49 @@ const deletebyid = async (req,res =Response) =>{
     }
 };
 
+const uploadImage = async (req, res = Response) =>{
+    try{
+        const {idProduct} = req.params;
+        if(req.files) {
+            if (idProduct) {
+                const results = await findById(idProduct);
+                if(results[0].id == idProduct){
+                    const {msg, path} = await uploadFiles(req.files, results[0].images);
+                    console.log(msg);
+                    const resultUpdate = await updateImagePath ({path,idProduct})
+                    res.status(200).json(resultUpdate);
+                }else
+                res.status(400).json({msg:"Revisa tu solicitud"});
+            }else console.log("no hay imagen path");
+        }else console.log("no hay archivo");
+    }catch (error){
+        console.log(error);
+        const message = validateError(error);
+        res.status(400).send({ message });
+    }
+}
+
+const getImage = async (req, res = Response) =>{
+    try {
+        const {idProduct} = req.params;
+        if (idProduct) {
+            const results = await findById(idProduct);
+            if (results[0].id == idProduct) {
+                const {msg, uploadPath} = await foundImage(results[0].images);
+                console.log(msg);
+                if (!(uploadPath === '')){
+                    return res.sendFile(uploadPath);
+                }
+            }
+        }
+        res.status(400).json({msg:"No se encontró la imagen"});
+    }catch (error){
+        console.log(error);
+        const message = validateError(error);
+        res.status(400).send({ message });
+    }
+}
+
 const productsRouter = Router();
 productsRouter.post('/',[],save);
 productsRouter.get('/',[],getall);
@@ -72,7 +120,11 @@ productsRouter.get('/:id',[],getbyid);
 productsRouter.delete('/:id',[],deletebyid);
 productsRouter.put('/',[],update);
 
+const uploadRouter = Router();
+uploadRouter.get('/:idProduct',[], getImage);
+uploadRouter.post('/:idProduct', [], uploadImage);
 
 module.exports = {
-    productsRouter
+    productsRouter,
+    uploadRouter
 };

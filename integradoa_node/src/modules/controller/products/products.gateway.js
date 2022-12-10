@@ -12,7 +12,7 @@ const findAll  = async () => {
 
 const findById = async (id) => {
     if (!id) throw Error ('Missing fields');
-    const sql = `SELECT pro.*, ca.description as descriptions FROM products pro JOIN category ca ON pro.category = ca.id WHERE pro.id=?;`;
+    const sql = `SELECT pro.*, ca.description as descriptions FROM products pro JOIN category ca ON pro.category = ca.id WHERE pro.id=?`;
     return await query(sql,[id]);
 };
 
@@ -28,6 +28,13 @@ const updateById = async (product) =>{
     const {updateId} = await  query(sql,[product.descriptions,product.category,product.price, product.stock, product.id]);
     return {...product,updateId};
 }
+
+const updateImagePath = async (update) =>{
+    if (!update.path || !update.idProduct ) throw Error("Revisa el campo");
+    const sql = `UPDATE products SET images=? WHERE id=?;`;
+    const {updateId} = await  query(sql,[update.path, update.idProduct]);
+    return {...update,updateId};
+}
  module.exports ={
-    insert,findAll,findById,deleteId,updateById
+    insert,findAll,findById,deleteId,updateById,updateImagePath
 };
