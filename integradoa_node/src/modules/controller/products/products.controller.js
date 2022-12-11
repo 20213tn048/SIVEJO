@@ -10,7 +10,7 @@ const save = async (req, res = Response) => {
     try {
         const { descriptions,category,price,stock} = req.body;
         console.log(req.body);
-        const product = await insert({ descriptions,category,price,stock,image:''});
+        const product = await insert({ descriptions,category,price,stock,images:''});
         res.status(200).json(product);
     } catch (error) {
         console.log(error);
