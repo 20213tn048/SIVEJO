@@ -21,6 +21,7 @@ create table products(
 	description varchar(20) not null,
 	category bigint not null,
 	price double (7,2) not null,
+	images varchar(200),
     stock bigint not null
 );
 
@@ -85,3 +86,10 @@ insert into users (name,surname,lastname,phone,address,email,password) values ('
 
 describe sales;
 insert into sales (idUser,idProduct,idStatus,count) values (1,1,1,1);
+
+/* Views */
+create or replace view historial as
+select p.description as "Descripción del producto",p.category,p.price,p.stock,sal.idStatus,s.description as "status",sal.id as "idSales" from products p join sales sal on sal.idProduct = p.id join  status s on sal.idStatus = s.id;
+
+create or replace view requests as 
+select u.id as "idUser",u.name,p.id as "idProduct", p.description, p.price, p.stock, p.category as "idCategory", sal.id as "idSale", s.id as idStatus from users u join sales sal on sal.idUser = u.id join products p on sal.idProduct = p.id join status s on sal.idStatus = s.id;
