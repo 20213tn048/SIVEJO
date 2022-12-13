@@ -4,6 +4,8 @@ const cors = require("cors");
 const {categoryRouter,userRouter,authRouter,productsRouter,requestsRouter} = require("../modules/controller/routes");
 const {request, response} = require("express");
 const {historyRouter,statusRouter} = require("../modules/controller/request/request.controller");
+const fileUpload = require ("express-fileupload");
+const {uploadRouter} = require("../modules/controller/products/products.controller");
 
 
 require("dotenv").config();//utilizar las propiedades del archivo .env
@@ -15,6 +17,11 @@ app.use(
 app.use(
     express.json({limit:"50mb"}) //maximo de nuestras peticiones
 );
+
+app.use(fileUpload({
+    useTempFiles : true,
+    tempFileDir : '/tmp/'
+}));
 
 //Routes
 
@@ -28,6 +35,7 @@ app.use("/api/products",productsRouter);
 app.use("/api/requests",requestsRouter);
 app.use("/api/history",historyRouter);
 app.use("/api/status",statusRouter);
+app.use("/api/upload",uploadRouter);
 module.exports={ //exportar objeto
     app
 };

@@ -31,8 +31,33 @@ const checkRoles = (roles) => {
     }
 }
 
+const validateJWT = (req, res = response, next) => {
+    const token = req.headers.authorization?.replace('Bearer ', '');
+
+    if (!token) {
+        return res.status(401).json({
+            msg: 'There is no token in the request',
+        });
+    }
+
+    try {
+        const { id, email, role } = jwt.verify(token, process.env.SECRET);
+
+        req.id = id;
+        req.email = email;
+        req.role = role;
+    } catch (error) {
+        return res.status(401).json({
+            ok: false,
+            msg: 'Token is not valid',
+        });
+    }
+
+    next();
+};
+
 module.exports = {
     generateToken,
     auth,
-    checkRoles
+    checkRoles,validateJWT
 };
