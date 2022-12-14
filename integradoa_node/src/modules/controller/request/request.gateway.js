@@ -10,7 +10,7 @@ const insert = async (request) => {
 const findHistory  = async (idUser) => {
     if (!idUser) throw Error("Revisa el campo");
     if (idUser === 1);
-    const sql = `SELECT * FROM users where users.id = ?;`;
+    const sql = `SELECT * FROM historial where users.id = ?;`;
     return await query(sql,[idUser]);
 };
 
@@ -24,6 +24,11 @@ const findBySales = async (idSales) =>{
     if (!idSales) throw Error('Missing fields');
     const sql = `SELECT * FROM SALES WHERE id = ?`;
     return await query(sql,[idSales]);
+}
+
+const getAllSales = async () =>{
+    const sql = `SELECT * FROM SALES;`;
+    return await query(sql,[]);
 }
 
 const updateById = async (sales) =>{
@@ -40,5 +45,5 @@ const deleteId = async  (id) => {
 }
 
 module.exports ={
-    insert,findHistory,deleteId,updateById,findByStatus, findBySales
+    insert,findHistory,deleteId,updateById,findByStatus, findBySales, getAllSales
 };
