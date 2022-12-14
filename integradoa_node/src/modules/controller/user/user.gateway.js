@@ -11,9 +11,10 @@ const findById  = async (id) => {
     return await query(sql,[id]);
 }
 const deleteId  = async (id) => {
-    if (!id) throw Error("Missing fields");
+    console.log(id);
+    if (!id.id) throw Error("Missing fields");
     const sql = `DELETE from users WHERE id=?;`;
-    return await query(sql,[id]);
+    return await query(sql,[id.id]);
 }
 const save = async (user) => {
     console.log(user);

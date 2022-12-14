@@ -1,12 +1,12 @@
 const { Response, Router } = require('express');
 const { validateError } = require('../../../utils/functions');
-const {insert, findHistory, deleteId, updateById, findByStatus, findBySales} = require("./request.gateway")
+const {insert, findHistory, deleteId, updateById, findByStatus, findBySales, getAllSales} = require("./request.gateway")
 const {auth,checkRoles} = require('../../../config/jwt');
 
 const save = async (req, res = Response) => {
     try {
         let counts = 0;
-        const {idUser, idProduct, idStatus} = req.body;
+        const {idUser, idProduct,idStatus} = req.body;
         if (!req.body.counts)
             counts = 1;
         else
@@ -83,6 +83,15 @@ const getBySales = async (req, res = Response) =>{
     * idStatus
     */
 }
+const getSales = async  (req,res =Response) =>{
+    try {
+        const results = getAllSales();
+        return res.status(200).json(results);
+    }catch (err){
+        const  message = validateError(err);
+        res.status(400).json({message});
+    }
+}
 
 const updateStatus = async (req, res = Response) => {
     try {
@@ -111,10 +120,10 @@ const deletebyid = async (req,res =Response) =>{
 
 const requestsRouter = Router();
 requestsRouter.post('/',[],save);
-requestsRouter.get('/:idSales',[auth, checkRoles(['admin'])],getBySales);//admin
+//requestsRouter.get('/:idSales',[auth, checkRoles(['admin'])],getBySales);//admin
 requestsRouter.delete('/:id',[],deletebyid);
 requestsRouter.put('/',[],updateStatus);
-
+requestsRouter.get('/',[checkRoles(['user'])],getSales);
 const statusRouter = Router();
 statusRouter.get('/:idStatus',[auth],getByStatus);//admin
 
