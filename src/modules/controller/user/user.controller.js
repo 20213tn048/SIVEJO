@@ -68,8 +68,8 @@ const update = async (req, res = Response) => {
 
 const deleteById = async (req,res = Response) =>{
     try {
-        const {id} = req.params;
-        const results= await deleteId(id);
+        const {id} = req.body;
+        const results= await deleteId({id});
         res.status(200).json(results);
     } catch (err) {
         console.log(err);
@@ -82,7 +82,7 @@ const userRouter = Router();
 userRouter.post('/', [], insert);
 userRouter.get('/', [auth, checkRoles(['admin'])], getAll); //GET -> !body
 userRouter.get('/:id', [], getById);
-userRouter.delete('/:id', [], deleteById);
+userRouter.delete('/', [], deleteById);
 userRouter.put('/', [], update);
 
 
