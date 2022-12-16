@@ -1,4 +1,4 @@
-drop database sivejo;
+drop database joyeria;
 
 create database sivejo;
 use sivejo;
@@ -15,16 +15,16 @@ create table users (
     role varchar(15) not null default "user",
 	status bigint not null default 1
 );
- 
+SELECT * FROM users WHERE email = '20213tn046@utez.edu.mx' AND status = 1;
 create table products(
 	id bigint primary key auto_increment,
 	description varchar(20) not null,
 	category bigint not null,
 	price double (7,2) not null,
-	images varchar(200),
     stock bigint not null
 );
-
+alter table products add column images varchar(200);
+SELECT pro.*, ca.description as description FROM products pro JOIN category ca ON pro.category = ca.id;
 create table category (
     id bigint primary key auto_increment,
     description varchar(50) not null
@@ -52,10 +52,10 @@ create table sales (
     idProduct bigint not null,
     idStatus bigint not null,
     count  tinyint,
-	salesDate timestamp default current_timestamp,
+	salesDate timestamp default now(),
     primary key (id)
 );
-
+drop table sales;
 alter table sales add foreign key (idStatus) references status(id);
 alter table sales add foreign key (idUser) references users (id);
 alter table sales add foreign key (idProduct) references products (id);
@@ -81,15 +81,27 @@ insert into products (description,category,price,stock) values ('Asfad',1,30.2,4
 select * from products;
 
 select * from users;
-insert into users (name,surname,lastname,phone,address,email,password) values ('Angel','Camargo','Silva',7775539274,'123 address','20213tn038@utez.edu.mx','20213tn048na2');
+insert into users (name,surname,lastname,phone,address,email,password) values ('Christian','Carrasco','Alonso',7776467587,'Vela','20213tn050@utez.edu.mx','123');
 
 
 describe sales;
-insert into sales (idUser,idProduct,idStatus,count) values (1,1,1,1);
+insert into sales (idUser,idProduct,idStatus,count) values (3,45,1,1);
 
 /* Views */
-create or replace view historial as
-select p.description as "Descripción del producto",p.category,p.price,p.stock,sal.idStatus,s.description as "status",sal.id as "idSales" from products p join sales sal on sal.idProduct = p.id join  status s on sal.idStatus = s.id;
 
-create or replace view requests as 
-select u.id as "idUser",u.name,p.id as "idProduct", p.description, p.price, p.stock, p.category as "idCategory", sal.id as "idSale", s.id as idStatus from users u join sales sal on sal.idUser = u.id join products p on sal.idProduct = p.id join status s on sal.idStatus = s.id;
+create or replace view history as select u.id as userId, p.description ,
+ p.price, sales.idStatus, es.description as "status", sales.id as idSales, sales.count from users u join sales  on u.id = sales.idUser join status es on sales.idStatus = es.id
+ join products p on p.id = sales.idProduct;
+ 
+create or replace view requests as select u.id as "idUser",u.name,p.id as "idProduct", 
+p.description, p.price, p.stock, p.category as "idCategory", sal.id as "idSale", s.description as 
+idStatus,sal.salesDate from users u join sales sal on sal.idUser = u.id join products p on sal.idProduct = p.id 
+join status s on sal.idStatus = s.id;
+
+select * from history where userId=32;
+select * from requests;
+
+SELECT * FROM requests where idUser = 2;
+
+
+
